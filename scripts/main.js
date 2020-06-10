@@ -4,20 +4,25 @@
 
 function openInfo(evt, tabName) {
 	// Get all elements with class="tabcontent" and hide them
+	console.log("test", evt, tabName);
 	tabcontent = document.getElementsByClassName("tabcontent");
 	for (i = 0; i < tabcontent.length; i++) {
-		tabcontent[i].style.display = "none";
+		// tabcontent[i].style.display = "none";
 	}
 
 	// Get all elements with class="tablinks" and remove the class "active"
 	tablinks = document.getElementsByClassName("tablinks");
 	for (i = 0; i < tablinks.length; i++) {
-		tablinks[i].className = tablinks[i].className.replace(" active", "");
+		if (tablinks[i].className == "tablinks active") {
+			tablinks[i].className = tablinks[i].className.replace(" active", "");
+			document.getElementById(tabName).style.display = "none";
+		} else {
+			// Show the current tab, and add an "active" class to the button that opened the tab
+			document.getElementById(tabName).style.display = "block";
+			evt.currentTarget.className += " active";
+		}
+		
 	}
-
-	// Show the current tab, and add an "active" class to the button that opened the tab
-	document.getElementById(tabName).style.display = "block";
-	evt.currentTarget.className += " active";
 
 }
 

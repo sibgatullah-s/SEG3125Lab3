@@ -12,6 +12,9 @@ https://stackoverflow.com/questions/26542652/how-to-add-text-into-span-after-doc
 https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_input_type_radio
 https://stackoverflow.com/questions/8838648/onchange-event-handler-for-radio-button-input-type-radio-doesnt-work-as-one
 https://stackoverflow.com/questions/9561625/checking-value-of-radio-button-group-via-javascript
+https://stackoverflow.com/questions/507138/how-do-i-add-a-class-to-a-given-element
+https://www.w3schools.com/jsref/prop_style_display.asp
+https://stackoverflow.com/questions/1709442/make-divs-height-expand-with-its-content
 
 
 
