@@ -4,25 +4,34 @@
 
 function openInfo(evt, tabName) {
 	// Get all elements with class="tabcontent" and hide them
-	console.log("test", evt, tabName);
 	tabcontent = document.getElementsByClassName("tabcontent");
+	tablinks = document.getElementsByClassName("tablinks");
+	var hid = false;
+	// console.log(tabcontent);
 	for (i = 0; i < tabcontent.length; i++) {
-		// tabcontent[i].style.display = "none";
+		// console.log("tabcontentid", tabcontent[i].id);
+		if (tabcontent[i].id == tabName && tablinks[i].className == "tablinks active") {
+			tabcontent[i].style.display = "none";
+			hid = true;
+		}
+			
 	}
 
 	// Get all elements with class="tablinks" and remove the class "active"
-	tablinks = document.getElementsByClassName("tablinks");
+	
 	for (i = 0; i < tablinks.length; i++) {
-		if (tablinks[i].className == "tablinks active") {
-			tablinks[i].className = tablinks[i].className.replace(" active", "");
-			document.getElementById(tabName).style.display = "none";
-		} else {
-			// Show the current tab, and add an "active" class to the button that opened the tab
-			document.getElementById(tabName).style.display = "block";
-			evt.currentTarget.className += " active";
-		}
-		
+		// console.log("tablinkscn", tablinks[i].innerHTML);
+		if (hid == true && tablinks[i].innerHTML == tabName) {
+			tablinks[i].className = tablinks[i].className = "tablinks";
+		}	
 	}
+
+	// Show the current tab, and add an "active" class to the button that opened the tab
+	if (hid != true) {
+		document.getElementById(tabName).style.display = "block";
+		evt.currentTarget.className = "tablinks active";
+	}
+
 
 }
 
