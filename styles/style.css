@@ -56,10 +56,16 @@
 #displayProduct {
   margin-left: 15px;
   margin-top: 5px;
+  display: flex;
+  flex-direction: column;
 }
 
 #addCart {
   margin-top: 10px;
+}
+
+.prefcontainer input{
+  display: inline-block;
 }
 
 footer {

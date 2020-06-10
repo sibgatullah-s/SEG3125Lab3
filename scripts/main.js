@@ -26,10 +26,10 @@ function openInfo(evt, tabName) {
 // generate a checkbox list from a list of products
 // it makes each product name as the label for the checkbos
 
-function populateListProductChoices(slct1, slct2) {
-    var s1 = document.getElementById(slct1);
-	var s2 = document.getElementById(slct2);
-	var s3 = document.getElementById("organicSelect");
+function populateListProductChoices(slct2) {
+    var s1 = document.querySelector('input[name="dietSelect"]:checked') // to get dietary pref
+	var s2 = document.getElementById(slct2); // displayProduct
+	var s3 = document.querySelector('input[name="organicSelect"]:checked') // get organic pref
 	if (s1.value != "" && s3.value != ""){
 	
 	
@@ -54,8 +54,12 @@ function populateListProductChoices(slct1, slct2) {
 		});
 		for (i = 0; i < optionArray.length; i++) {
 			// code to find prices for products inspired by https://stackoverflow.com/questions/36419195/get-index-from-a-json-object-with-value/36419269
-				
 			var productName = optionArray[i];
+			var container = document.createElement("div");
+			container.id = productName;
+			container.className = "prods";
+			container.style.display = "none";
+			container.style.verticalAlign = "top";
 			var idx = products.findIndex(obj => obj.name == productName);
 			var price = products[idx].price;
 			// get image for element
@@ -64,23 +68,25 @@ function populateListProductChoices(slct1, slct2) {
 			img.style.height = '100px';
 			img.style.width = '100px';
 			img.style.overflow = 'hidden';
-			s2.appendChild(img);
-			s2.appendChild(document.createElement("br"));
+			container.appendChild(img);
+			container.appendChild(document.createElement("br"));
 			// create the checkbox and add in HTML DOM
 			var checkbox = document.createElement("input");
+			// checkbox.style.display = "inline";
 			checkbox.type = "checkbox";
 			checkbox.name = "product";
 			checkbox.value = productName;
-			s2.appendChild(checkbox);
+			container.appendChild(checkbox);
 			
 			// create a label for the checkbox, and also add in HTML DOM
 			var label = document.createElement('label')
 			label.htmlFor = productName;
 			label.appendChild(document.createTextNode(productName + ": " + price));
-			s2.appendChild(label);
+			container.appendChild(label);
 			
 			// create a breakline node and add in HTML DOM
-			s2.appendChild(document.createElement("br"));    
+			s2.appendChild(container);
+			// s2.appendChild(document.createElement("br"));    
 		}
 	}
 }
@@ -114,7 +120,7 @@ function selectedItems(){
 			div.style.display = "inline-block";
 			div.style.textAlign = "center";
 			div.style.width = "100px";
-			div.style.marginLeft = "10px";
+			div.style.marginLeft = "12px";
 			// create image for item
 			var img = document.createElement("img");
 			img.src = "images/" + ele[i].value + ".jpg";
@@ -141,5 +147,25 @@ function selectedItems(){
 	c.appendChild(para);
 	c.appendChild(document.createTextNode("Total Price is " + getTotalPrice(chosenProducts)));
 		
+}
+
+// function which displays products based on category selected
+function updateChoices(){
+	// set all items to display none
+	var prods = document.getElementsByClassName("prods");
+	for (var i = 0; i < prods.length; i++) {
+		prods[i].style.display = "none";
+	}
+	
+	// iterate list of products, display based on category selected
+	var category = document.getElementById("category").value;
+	products.forEach(item => {
+		if (item.category == category && document.getElementById(item.name) != null) {
+			var choice = document.getElementById(item.name);
+			// console.log("choices", choice);
+			choice.style.display = "table-caption";
+			choice.style.marginTop = "0px";
+		}
+	});
 }
 

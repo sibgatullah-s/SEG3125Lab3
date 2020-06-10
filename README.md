@@ -9,6 +9,10 @@ https://stackoverflow.com/questions/6840326/how-can-i-create-and-style-a-div-usi
 https://stackoverflow.com/questions/22592064/how-to-align-text-below-an-image-in-css
 https://stackoverflow.com/questions/6689529/how-to-add-the-span-by-javascript
 https://stackoverflow.com/questions/26542652/how-to-add-text-into-span-after-document-createelementspan?rq=1
+https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_input_type_radio
+https://stackoverflow.com/questions/8838648/onchange-event-handler-for-radio-button-input-type-radio-doesnt-work-as-one
+https://stackoverflow.com/questions/9561625/checking-value-of-radio-button-group-via-javascript
+
 
 
 Images:

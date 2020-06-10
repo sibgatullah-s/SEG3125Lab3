@@ -7,7 +7,7 @@
 </head>
 
 <body>
-
+<!-- <script src="scripts/accordion.js"></script>  -->
 <!-- Tab links, each one with an onclick event associated with it -->
 <div class="tab">
   <button class="tablinks" onclick="openInfo(event, 'Client')">Client</button>
@@ -20,28 +20,71 @@
 <div id="Client" class="tabcontent">
   <h3>Client Information</h3>
   <p>Tell us a bit about you.</p>
-	Specify Your Dietary Preferences:
-	<select id="dietSelect" name="dietSelect" onchange="populateListProductChoices(this.id, 'displayProduct')">
+	<!-- <select id="dietSelect" name="dietSelect" onchange="populateListProductChoices(this.id, 'displayProduct')">
 	  <option value=""></option>
 	  <option value="Vegetarian">Vegetarian Products</option>
     <option value="GlutenFree">Gluten Free Products</option>
     <option value="VegGluten">Vegetarian and Gluten Free Products</option>
     <option value="None">None</option>
-  </select>
-  Quality Preferences:
-  <select id="organicSelect" name="organicSelect" onchange="populateListProductChoices('dietSelect', 'displayProduct')">
+  </select> -->
+  <div class="prefcontainer">
+    Specify Your Dietary Preferences:
+    <div class="opt">
+      <input type="radio" id="Vegetarian" name="dietSelect" value="Vegetarian" onclick="populateListProductChoices('displayProduct')">
+      <label for="Vegetarian">Vegetarian Products</label>
+    </div>
+    <div class="opt">
+      <input type="radio" id="GlutenFree" name="dietSelect" value="GlutenFree" onclick="populateListProductChoices('displayProduct')">
+      <label for="GlutenFree">Gluten Free Products</label>
+    </div>
+    <div class="opt">
+      <input type="radio" id="VegGluten" name="dietSelect" value="VegGluten" onclick="populateListProductChoices('displayProduct')">
+      <label for="VegGluten">Vegetarian and Gluten Free Products</label>
+    </div>
+    <div class="opt">
+      <input type="radio" id="None" name="dietSelect" value="None" onclick="populateListProductChoices('displayProduct')">
+      <label for="None">None</label>
+    </div>
+    <br>
+    Quality Preferences:
+    <div class="opt">
+      <input type="radio" id="Organic" name="organicSelect" value="Organic" onclick="populateListProductChoices('displayProduct')">
+      <label for="Organic">Organic</label>
+    </div>
+    <div class="opt">
+      <input type="radio" id="None" name="organicSelect" value="None" onclick="populateListProductChoices('displayProduct')">
+      <label for="None">None</label>
+    </div>
+
+
+  </div>
+  
+
+
+  
+  <!-- <select id="organicSelect" name="organicSelect" onchange="populateListProductChoices('dietSelect', 'displayProduct')">
     <option value=""></option>
     <option value="Organic">Organic</option>
     <option value="None">None</option>
-  </select>
+  </select> -->
   <footer>
     Website designed by: Sibgatullah Shaikh
   </footer>
 </div>
 
 <div id="Products" class="tabcontent">
-  <h3>Your targeted products</h3>
+  <h3>Your available products</h3>
   <p>We refined our list of products based on your preferences.</p>
+    Select a category:
+    <select id="category" name="category" onchange="updateChoices()">
+      <option value=""></option>
+      <option value="fruits">Fruits</option>
+      <option value="vegetables">Vegetables</option>
+      <option value="proteins">Proteins</option>
+      <option value="dairy">Dairy</option>
+      <option value="carbohydrates">Carbohydrates</option>
+    </select>
+    <br>
 	 Choose items to buy:
 	 <div id="displayProduct"></div>
 	 <button id="addCart" type="button" class="block" onclick="selectedItems()">

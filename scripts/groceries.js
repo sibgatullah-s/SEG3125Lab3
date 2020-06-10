@@ -8,6 +8,7 @@ var products = [
 		vegetarian: true,
 		glutenFree: true,
 		organic: true,
+		category: "vegetables",
 		price: 2.00
 	},
 	{
@@ -15,6 +16,7 @@ var products = [
 		vegetarian: true,
 		glutenFree: false,
 		organic: false,
+		category: "carbohydrates",
 		price: 2.35
 	},
 	{
@@ -22,6 +24,7 @@ var products = [
 		vegetarian: false,
 		glutenFree: true,
 		organic: true,
+		category: "proteins",
 		price: 10.00
 	},
 	{
@@ -29,6 +32,7 @@ var products = [
 		vegetarian: false,
 		glutenFree: true,
 		organic: true,
+		category: "proteins",
 		price: 9.00
 	},
 	{
@@ -36,6 +40,7 @@ var products = [
 		vegetarian: false,
 		glutenFree: true,
 		organic: false,
+		category: "proteins",
 		price: 12.00
 	},
 	{
@@ -43,6 +48,7 @@ var products = [
 		vegetarian: true,
 		glutenFree: true,
 		organic: true,
+		category: "vegetables",
 		price: 4.00
 	},
 	{
@@ -50,6 +56,7 @@ var products = [
 		vegetarian: true,
 		glutenFree: true,
 		organic: true,
+		category: "vegetables",
 		price: 3.00
 	},
 	{
@@ -57,6 +64,7 @@ var products = [
 		vegetarian: true,
 		glutenFree: true,
 		organic: true,
+		category: "fruits",
 		price: 6.00
 	},
 	{
@@ -64,6 +72,7 @@ var products = [
 		vegetarian: true,
 		glutenFree: true,
 		organic: false,
+		category: "dairy",
 		price: 4.50
 	},
 	{
@@ -71,6 +80,7 @@ var products = [
 		vegetarian: true,
 		glutenFree: true,
 		organic: false,
+		category: "dairy",
 		price: 2.00
 	}
 ];
