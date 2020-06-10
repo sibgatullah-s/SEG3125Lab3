@@ -58,6 +58,14 @@ function populateListProductChoices(slct1, slct2) {
 			var productName = optionArray[i];
 			var idx = products.findIndex(obj => obj.name == productName);
 			var price = products[idx].price;
+			// get image for element
+			var img = document.createElement("img");
+			img.src = "images/" + productName + ".jpg";
+			img.style.height = '100px';
+			img.style.width = '100px';
+			img.style.overflow = 'hidden';
+			s2.appendChild(img);
+			s2.appendChild(document.createElement("br"));
 			// create the checkbox and add in HTML DOM
 			var checkbox = document.createElement("input");
 			checkbox.type = "checkbox";
@@ -91,11 +99,39 @@ function selectedItems(){
 	
 	// build list of selected item
 	var para = document.createElement("P");
+	// para.style.marginLeft = "10px";
 	para.innerHTML = "You selected : ";
 	para.appendChild(document.createElement("br"));
+	// add 5px space between text and list .. inefficient
+	var spc = document.createElement("div");
+	spc.style.height = "5px";
+	para.appendChild(spc);
 	for (i = 0; i < ele.length; i++) { 
 		if (ele[i].checked) {
-			para.appendChild(document.createTextNode(ele[i].value));
+			// create div for item and pic
+			var div = document.createElement("div");
+			div.style.verticalAlign = "top";
+			div.style.display = "inline-block";
+			div.style.textAlign = "center";
+			div.style.width = "100px";
+			div.style.marginLeft = "10px";
+			// create image for item
+			var img = document.createElement("img");
+			img.src = "images/" + ele[i].value + ".jpg";
+			img.style.height = '100px';
+			img.style.width = '100px';
+			img.style.overflow = 'hidden';
+			// add image to div
+			div.appendChild(img);
+			// create span with text
+			var text = document.createElement("span");
+			text.textContent = ele[i].value;
+			text.style.display = "block";
+			// div.appendChild(document.createTextNode(ele[i].value));
+			// add span to div
+			div.appendChild(text);
+			// add div to para
+			para.appendChild(div);
 			para.appendChild(document.createElement("br"));
 			chosenProducts.push(ele[i].value);
 		}

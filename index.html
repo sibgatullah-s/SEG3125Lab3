@@ -20,15 +20,15 @@
 <div id="Client" class="tabcontent">
   <h3>Client Information</h3>
   <p>Tell us a bit about you.</p>
-	Choose a Category:
+	Specify Your Dietary Preferences:
 	<select id="dietSelect" name="dietSelect" onchange="populateListProductChoices(this.id, 'displayProduct')">
 	  <option value=""></option>
-	  <option value="Vegetarian">Vegetarian</option>
-    <option value="GlutenFree">GlutenFree</option>
-    <option value="VegGluten">Vegetarian and GlutenFree</option>
+	  <option value="Vegetarian">Vegetarian Products</option>
+    <option value="GlutenFree">Gluten Free Products</option>
+    <option value="VegGluten">Vegetarian and Gluten Free Products</option>
     <option value="None">None</option>
   </select>
-  Preferences:
+  Quality Preferences:
   <select id="organicSelect" name="organicSelect" onchange="populateListProductChoices('dietSelect', 'displayProduct')">
     <option value=""></option>
     <option value="Organic">Organic</option>
@@ -41,7 +41,7 @@
 
 <div id="Products" class="tabcontent">
   <h3>Your targeted products</h3>
-  <p>We preselected products based on your restrictions.</p>
+  <p>We refined our list of products based on your preferences.</p>
 	 Choose items to buy:
 	 <div id="displayProduct"></div>
 	 <button id="addCart" type="button" class="block" onclick="selectedItems()">
@@ -54,7 +54,7 @@
 
 <div id="Cart" class="tabcontent">
   <h3>Cart</h3>
-  <p>Here is your cart.</p>
+  <p>Here are your selected items.</p>
   <div id="displayCart"></div>
   <footer>
     Website designed by: Sibgatullah Shaikh
